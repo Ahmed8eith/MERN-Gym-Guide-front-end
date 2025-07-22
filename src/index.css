@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@plugin "daisyui";
+
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #000;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/gym0.webp');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  background-size: contain;
+  background-position: right center;
+}
+
+/* Medium screens */
+@media screen and (max-width: 1024px) {
+  #root {
+    background-position: 85% center;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 768px) {
+  #root {
+    background-position: 70% center;
+  }
+  
+  /* Gradient for bottom fade on mobile */
+  #root::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 30vh;
+    background: linear-gradient(to bottom, transparent, #000);
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+/* Subtle overlay */
+#root::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content */
+#root > * {
+  position: relative;
+  z-index: 2;
+}
